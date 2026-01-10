@@ -1,8 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace></RootNamespace>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -14,23 +13,17 @@
     <PackageReference Include="Serilog" Version="4.3.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
   </ItemGroup>
-
+  
   <ItemGroup>
-    <_ContentIncludedByDefault Remove="Pages\Index.razor" />
-    <_ContentIncludedByDefault Remove="Shared\MainLayout.razor" />
-    <_ContentIncludedByDefault Remove="Shared\TopCarousel.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <AdditionalFiles Include="WeddingSite\Components\ContactDetails.razor" />
-    <AdditionalFiles Include="WeddingSite\Components\ContactForm.razor" />
-    <AdditionalFiles Include="WeddingSite\Components\GiftChecklist.razor" />
-    <AdditionalFiles Include="WeddingSite\Components\HoneymoonSponsorship.razor" />
-    <AdditionalFiles Include="WeddingSite\Components\PhotoSlideshow.razor" />
-    <AdditionalFiles Include="WeddingSite\Components\ProgramView.razor" />
-    <AdditionalFiles Include="WeddingSite\Pages\Index.razor" />
-    <AdditionalFiles Include="WeddingSite\Shared\MainLayout.razor" />
-    <AdditionalFiles Include="WeddingSite\Shared\TopCarousel.razor" />
+    <AdditionalFiles Include="Components\ContactDetails.razor" />
+    <AdditionalFiles Include="Components\ContactForm.razor" />
+    <AdditionalFiles Include="Components\GiftChecklist.razor" />
+    <AdditionalFiles Include="Components\HoneymoonSponsorship.razor" />
+    <AdditionalFiles Include="Components\PhotoSlideshow.razor" />
+    <AdditionalFiles Include="Components\ProgramView.razor" />
+    <AdditionalFiles Include="Pages\Index.razor" />
+    <AdditionalFiles Include="Shared\MainLayout.razor" />
+    <AdditionalFiles Include="Shared\TopCarousel.razor" />
   </ItemGroup>
 
 </Project>
