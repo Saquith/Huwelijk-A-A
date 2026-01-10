@@ -1,0 +1,103 @@
+@using System.ComponentModel.DataAnnotations
+@inject WeddingSite.Services.EmailService EmailService
+
+<EditForm Model="Model" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label class="form-label">Your name</label>
+        <InputText class="form-control" @bind-Value="Model.Name" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Your email</label>
+        <InputText class="form-control" @bind-Value="Model.Email" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Subject</label>
+        <InputText class="form-control" @bind-Value="Model.Subject" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Message</label>
+        <InputTextArea class="form-control" rows="5" @bind-Value="Model.Message" />
+    </div>
+
+    @* Honeypot anti-spam field (should stay empty). Hidden from users but bots may fill it. *@
+    <div style="display:none">
+        <label>Leave empty</label>
+        <InputText @bind-Value="Model.Hp" />
+    </div>
+
+    <div class="mb-3">
+        <button class="btn btn-primary" type="submit" disabled="@Submitting">
+            @(Submitting ? "Sending…" : "Send message")
+        </button>
+        <small class="text-muted ms-2">We will never share your email. Uses your configured email API endpoint.</small>
+    </div>
+</EditForm>
+
+@if (ResultMessage is not null)
+{
+    <div class="alert @(ResultSuccess ? "alert-success" : "alert-danger")">
+        @ResultMessage
+    </div>
+}
+
+@code {
+    class ContactModel
+    {
+        [Required] public string Name { get; set; } = "";
+        [Required, EmailAddress] public string Email { get; set; } = "";
+        public string Subject { get; set; } = "Message from wedding site";
+        [Required] public string Message { get; set; } = "";
+        public string Hp { get; set; } = ""; // honeypot
+    }
+
+    private ContactModel Model = new();
+    private bool Submitting = false;
+    private bool ResultSuccess;
+    private string? ResultMessage;
+
+    private async Task HandleValidSubmit()
+    {
+        ResultMessage = null;
+        ResultSuccess = false;
+
+        // basic honeypot check
+        if (!string.IsNullOrWhiteSpace(Model.Hp))
+        {
+            ResultMessage = "Submission rejected.";
+            ResultSuccess = false;
+            return;
+        }
+
+        Submitting = true;
+
+        var payload = new Services.EmailService.ContactPayload
+        {
+            Name = Model.Name,
+            Email = Model.Email,
+            Subject = Model.Subject,
+            Message = Model.Message,
+            Hp = Model.Hp
+        };
+
+        var (Success, ErrorMessage) = await EmailService.SendContactAsync(payload);
+        Submitting = false;
+
+        if (Success)
+        {
+            ResultSuccess = true;
+            ResultMessage = "Thanks — your message was sent. We'll get back to you soon.";
+            Model = new ContactModel(); // reset form
+        }
+        else
+        {
+            ResultSuccess = false;
+            ResultMessage = $"Could not send message. {ErrorMessage}";
+        }
+    }
+}

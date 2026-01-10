@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  wedding:
+    build:
+      context: .
+      dockerfile: WeddingBackend/Dockerfile
+    image: wedding-site:latest
+    ports:
+      - "8080:80"
+    env_file:
+      - .env
+    environment:
+      # Ensure these are set either in .env or here (example shown commented)
+      # Smtp__Host: ${Smtp__Host}
+      # Smtp__Port: ${Smtp__Port}
+      # Smtp__UseSsl: ${Smtp__UseSsl}
+      # Smtp__User: ${Smtp__User}
+      # Smtp__Password: ${Smtp__Password}
+      # Smtp__To: ${Smtp__To}
+      # Smtp__FromAddress: ${Smtp__FromAddress}
+    volumes:
+      - ./logs:/app/logs
+    restart: unless-stopped

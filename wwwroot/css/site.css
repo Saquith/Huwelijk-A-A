@@ -1,0 +1,12 @@
+body {
+  background: #fff;
+  color: #222;
+}
+
+.carousel-item img {
+  width: 100%;
+}
+
+.card {
+  border-radius: 8px;
+}

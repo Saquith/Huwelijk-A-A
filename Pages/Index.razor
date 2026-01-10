@@ -1,0 +1,31 @@
+@page "/"
+@inject NavigationManager NavManager
+
+<TopCarousel />
+
+<div class="container py-5">
+    <section id="program" class="mb-5">
+        <h2 class="mb-3">Wedding Program</h2>
+        <ProgramView />
+    </section>
+
+    <section id="gifts" class="mb-5">
+        <h2 class="mb-3">Gift (Check) List</h2>
+        <GiftChecklist />
+    </section>
+
+    <section id="honeymoon" class="mb-5">
+        <h2 class="mb-3">Honeymoon Sponsorship</h2>
+        <HoneymoonSponsorship />
+    </section>
+
+    <section id="photos" class="mb-5">
+        <h2 class="mb-3">Photos</h2>
+        <PhotoSlideshow />
+    </section>
+
+    <section id="contact" class="mb-5">
+        <h2 class="mb-3">Contact</h2>
+        <ContactDetails />
+    </section>
+</div>

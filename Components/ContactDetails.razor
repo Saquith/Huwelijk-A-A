@@ -1,0 +1,54 @@
+@* Static contact details view + contact form submission *@
+
+<div class="row g-4">
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">The Couple</h5>
+                <p class="card-text mb-1"><strong>Alex &amp; Jamie</strong></p>
+                <p class="card-text small text-muted">We can't wait to celebrate with you — reach out with any questions.</p>
+
+                <ul class="list-unstyled mt-3">
+                    <li><strong>Email:</strong> <a href="mailto:alexandjamie@example.com">alexandjamie@example.com</a></li>
+                    <li><strong>Phone:</strong> <a href="tel:+15551234567">+1 (555) 123-4567</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Event & Venue</h5>
+                <p class="card-text"><strong>St. Mary's Chapel</strong></p>
+                <p class="card-text mb-1">123 Celebration Lane<br />Townsville, ST 12345</p>
+
+                <p class="mb-2">
+                    <a class="btn btn-outline-primary btn-sm" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=St.+Mary%27s+Chapel+Townsville">
+                        Get directions
+                    </a>
+                </p>
+
+                <p class="small text-muted mb-0">
+                    For questions about accommodations or accessibility, contact our event coordinator:
+                </p>
+                <ul class="list-unstyled mt-2">
+                    <li><strong>Coordinator:</strong> Morgan Lee</li>
+                    <li><strong>Email:</strong> <a href="mailto:morgan.coordinator@example.com">morgan.coordinator@example.com</a></li>
+                    <li><strong>Phone:</strong> <a href="tel:+15557654321">+1 (555) 765-4321</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card mt-3">
+            <div class="card-body">
+                <h6>Send us a message</h6>
+                <p class="mb-2">Use the form to send questions, RSVP details, or dietary requests. Messages will be delivered via the configured email API.</p>
+
+                <ContactForm />
+            </div>
+        </div>
+    </div>
+</div>
