@@ -2,14 +2,35 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>WeddingSite</RootNamespace>
+    <RootNamespace></RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MailKit" Version="4.14.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.0" PrivateAssets="all" />
+    <PackageReference Include="Serilog" Version="4.3.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\Index.razor" />
+    <_ContentIncludedByDefault Remove="Shared\MainLayout.razor" />
+    <_ContentIncludedByDefault Remove="Shared\TopCarousel.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="WeddingSite\Components\ContactDetails.razor" />
+    <AdditionalFiles Include="WeddingSite\Components\ContactForm.razor" />
+    <AdditionalFiles Include="WeddingSite\Components\GiftChecklist.razor" />
+    <AdditionalFiles Include="WeddingSite\Components\HoneymoonSponsorship.razor" />
+    <AdditionalFiles Include="WeddingSite\Components\PhotoSlideshow.razor" />
+    <AdditionalFiles Include="WeddingSite\Components\ProgramView.razor" />
+    <AdditionalFiles Include="WeddingSite\Pages\Index.razor" />
+    <AdditionalFiles Include="WeddingSite\Shared\MainLayout.razor" />
+    <AdditionalFiles Include="WeddingSite\Shared\TopCarousel.razor" />
   </ItemGroup>
 
 </Project>
