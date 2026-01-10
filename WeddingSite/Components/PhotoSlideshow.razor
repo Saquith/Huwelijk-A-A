@@ -1,10 +1,10 @@
-@inject WeddingSite.Services.PhotoService PhotoService
+@inject Services.PhotoService PhotoService
 
-@if (IsLoading)
+@if (_isLoading)
 {
     <div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>
 }
-else if (!Photos.Any())
+else if (!_photos.Any())
 {
     <div class="alert alert-warning">No photos available. Add image URLs to <code>wwwroot/appsettings.json</code> or put images in <code>wwwroot/images</code>.</div>
 }
@@ -12,9 +12,9 @@ else
 {
     <div id="photoCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-            @for (int i = 0; i < Photos.Count; i++)
+            @for (int i = 0; i < _photos.Count; i++)
             {
-                var url = Photos[i];
+                var url = _photos[i];
                 <div class="carousel-item @(i == 0 ? "active" : "")">
                     <img src="@url" class="d-block w-100" alt="photo" style="max-height:600px;object-fit:cover;">
                 </div>
@@ -32,13 +32,13 @@ else
 }
 
 @code {
-    private bool IsLoading = true;
-    private List<string> Photos = new();
+    private bool _isLoading = true;
+    private List<string> _photos = new();
 
     protected override async Task OnInitializedAsync()
     {
-        IsLoading = true;
-        Photos = await PhotoService.GetPhotoUrlsAsync();
-        IsLoading = false;
+        _isLoading = true;
+        _photos = await PhotoService.GetPhotoUrlsAsync();
+        _isLoading = false;
     }
 }

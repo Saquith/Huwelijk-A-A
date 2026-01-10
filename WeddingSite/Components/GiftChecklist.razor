@@ -1,6 +1,6 @@
 @using System.Text.Json
 @using Microsoft.JSInterop
-@inject IJSRuntime JS
+@inject IJSRuntime Js
 
 @code {
     private List<GiftItem> Gifts = new()
@@ -15,7 +15,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        var json = await JS.InvokeAsync<string>("localStorageFunctions.getItem", StorageKey);
+        var json = await Js.InvokeAsync<string>("localStorageFunctions.getItem", StorageKey);
         if (!string.IsNullOrEmpty(json))
         {
             try
@@ -37,7 +37,7 @@
     private async Task Persist()
     {
         var json = JsonSerializer.Serialize(Gifts);
-        await JS.InvokeVoidAsync("localStorageFunctions.setItem", StorageKey, json);
+        await Js.InvokeVoidAsync("localStorageFunctions.setItem", StorageKey, json);
     }
 
     private async Task Reset()

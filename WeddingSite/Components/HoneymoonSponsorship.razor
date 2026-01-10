@@ -1,11 +1,12 @@
 @using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Components.Forms
 
 <h5>Contribute to our honeymoon</h5>
 
 @if (Submitted)
 {
     <div class="alert alert-success">
-        Thank you, @Submission.Name! Your pledge of @Submission.Amount:C has been recorded.
+        Thank you, @Submission?.Name! Your pledge of @Submission?.Amount:C has been recorded.
         We'll contact you with details for completing the payment.
     </div>
 }

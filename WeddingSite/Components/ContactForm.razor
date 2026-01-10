@@ -1,5 +1,6 @@
 @using System.ComponentModel.DataAnnotations
-@inject WeddingSite.Services.EmailService EmailService
+@using Microsoft.AspNetCore.Components.Forms
+@inject Services.EmailService EmailService
 
 <EditForm Model="Model" OnValidSubmit="HandleValidSubmit">
     <DataAnnotationsValidator />
