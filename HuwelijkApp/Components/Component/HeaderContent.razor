@@ -1,0 +1,31 @@
+﻿@code {
+
+    private List<HeaderContentPage> _pages = new List<HeaderContentPage>(new[]
+    {
+        new HeaderContentPage("/info", "Praktische informatie", "info"),
+        new HeaderContentPage("/programma", "Programma", "menu"),
+        new HeaderContentPage("/cadeaus", "Cadeaus", "gift"),
+        new HeaderContentPage("/reis", "Huwelijksreis", "plane"),
+        new HeaderContentPage("/fotos", "Foto's", "photo"),
+        new HeaderContentPage("/contact", "Contact", "email"),
+    });
+
+}
+<div class="header-content">
+    @foreach (var page in _pages) {
+    <NavLink class="header-link" href="@(page.Link)">
+        @if (page.Icon != null) {
+        <img src="icons/@(page.Icon).png" alt="@(page.Icon)"/>
+        }
+        <span class="link-text">@(page.Text)</span>
+    </NavLink>
+    }
+</div>
+
+<style>
+    .header-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+</style>
