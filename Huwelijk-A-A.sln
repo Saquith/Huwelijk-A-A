@@ -1,8 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeddingBackend", "WeddingBackend\WeddingBackend.csproj", "{E9C6C347-2E9C-4EF7-BFAB-4AD6F418D358}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HuwelijkApp", "HuwelijkApp\HuwelijkApp.csproj", "{CCB96440-970C-4882-8CCC-6F6544982D50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeddingSite", "WeddingSite\WeddingSite.csproj", "{9B45E978-910C-4036-B300-221A95F4140C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EE580190-98B0-4524-83E8-6F2DC351BE00}"
+	ProjectSection(SolutionItems) = preProject
+		compose.yaml = compose.yaml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,13 +13,9 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E9C6C347-2E9C-4EF7-BFAB-4AD6F418D358}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E9C6C347-2E9C-4EF7-BFAB-4AD6F418D358}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E9C6C347-2E9C-4EF7-BFAB-4AD6F418D358}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E9C6C347-2E9C-4EF7-BFAB-4AD6F418D358}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9B45E978-910C-4036-B300-221A95F4140C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9B45E978-910C-4036-B300-221A95F4140C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9B45E978-910C-4036-B300-221A95F4140C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9B45E978-910C-4036-B300-221A95F4140C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCB96440-970C-4882-8CCC-6F6544982D50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCB96440-970C-4882-8CCC-6F6544982D50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCB96440-970C-4882-8CCC-6F6544982D50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCB96440-970C-4882-8CCC-6F6544982D50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

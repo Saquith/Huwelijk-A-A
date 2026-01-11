@@ -1,0 +1,7 @@
+﻿services:
+  huwelijkapp:
+    image: huwelijkapp
+    build:
+      context: .
+      dockerfile: HuwelijkApp/Dockerfile
+
