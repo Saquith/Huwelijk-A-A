@@ -2,6 +2,7 @@
 
     private List<HeaderContentPage> _pages = new List<HeaderContentPage>(new[]
     {
+        new HeaderContentPage("/", "Home"),
         new HeaderContentPage("/info", "Praktische informatie", "info"),
         new HeaderContentPage("/programma", "Programma", "menu"),
         new HeaderContentPage("/cadeaus", "Cadeaus", "gift"),
@@ -24,8 +25,11 @@
 
 <style>
     .header-content {
+        height: 100%;
         display: flex;
         flex-direction: row;
         justify-content: center;
+        align-items: center;
+        gap: 8px;
     }
 </style>
