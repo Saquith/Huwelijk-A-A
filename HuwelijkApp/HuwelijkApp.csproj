@@ -16,6 +16,7 @@
 
     <ItemGroup>
       <Folder Include="wwwroot\icons\" />
+      <Folder Include="wwwroot\image\" />
       <Folder Include="wwwroot\lib\" />
     </ItemGroup>
 
