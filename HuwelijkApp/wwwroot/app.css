@@ -1,9 +1,18 @@
 :root {
     --primary: #264926;
+    --secondary: #3d8e3d;
+    --secondary-light: #85bd85;
 }
 
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h1, h2 {
+    color: var(--primary);
+}
+h3, h4 {
+    color: var(--secondary);
 }
 
 a {

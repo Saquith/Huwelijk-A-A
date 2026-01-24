@@ -2,12 +2,12 @@
 
     private List<HeaderContentPage> _pages = new List<HeaderContentPage>(new[]
     {
-        new HeaderContentPage("/", "Home"),
+        new HeaderContentPage("/home", "", "home"),
         new HeaderContentPage("/info", "Praktische informatie", "info"),
-        new HeaderContentPage("/programma", "Programma", "menu"),
-        new HeaderContentPage("/cadeaus", "Cadeaus", "gift"),
-        new HeaderContentPage("/reis", "Huwelijksreis", "plane"),
-        new HeaderContentPage("/fotos", "Foto's", "photo"),
+        new HeaderContentPage("/programma", "Programma", "list"),
+        new HeaderContentPage("/cadeaus", "Cadeaus", "gift"), // "gift-outline"
+        new HeaderContentPage("/reis", "Huwelijksreis", "earth"), // "plane" "plane-dots"
+        new HeaderContentPage("/fotos", "Foto's", "album"),
         new HeaderContentPage("/contact", "Contact", "email"),
     });
 
@@ -16,9 +16,13 @@
     @foreach (var page in _pages) {
     <NavLink class="header-link" href="@(page.Link)">
         @if (page.Icon != null) {
-        <img src="icons/@(page.Icon).png" alt="@(page.Icon)"/>
+        <svg alt="@(page.Icon)">
+            <use href="icons/@(page.Icon).svg" />
+        </svg>
         }
+        @if (!string.IsNullOrEmpty(page.Text)) {
         <span class="link-text">@(page.Text)</span>
+        }
     </NavLink>
     }
 </div>
@@ -30,6 +34,41 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        flex-wrap: wrap;
         gap: 8px;
+        
+        .header-link {
+            padding: 7px;
+            border-radius: 5px;
+            border: 1px solid var(--secondary);
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            color: var(--secondary-light);
+            text-decoration: none;
+            
+            &.active {
+                font-weight: bold;
+            }
+            
+            &:hover {
+                background-color: var(--secondary-light);
+                color: var(--primary);
+                
+                svg {
+                    fill: var(--primary);
+                }
+            }
+            
+            svg {
+                fill: var(--secondary-light);
+                max-width: 24px;
+                max-height: 24px;
+                min-width: 24px;
+                min-height: 24px;
+            }
+        }
     }
 </style>
