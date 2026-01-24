@@ -9,6 +9,9 @@
             @Body
         </article>
     </main>
+    <footer class="footer">
+        <img class="kaart" alt="kaart achtergrond" src="/image/background.jpg" />
+    </footer>
 </div>
 
 <div id="blazor-error-ui" data-nosnippet>
@@ -31,6 +34,18 @@
             width: 100%;
             height: 100px;
             background-color: var(--primary);
+        }
+        
+        .footer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+            .kaart {
+                width: 100%;
+                max-width: 720px;
+            }
         }
         
         .main {
