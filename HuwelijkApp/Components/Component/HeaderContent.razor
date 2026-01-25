@@ -1,7 +1,5 @@
 ﻿@code {
-
-    private List<HeaderContentPage> _pages = new List<HeaderContentPage>(new[]
-    {
+    private List<HeaderContentPage> _pages = new List<HeaderContentPage>(new[] {
         new HeaderContentPage("/home", "", "home"),
         new HeaderContentPage("/info", "Praktische informatie", "info"),
         new HeaderContentPage("/programma", "Programma", "list"),
@@ -10,7 +8,6 @@
         new HeaderContentPage("/fotos", "Foto's", "album"),
         new HeaderContentPage("/contact", "Contact", "email"),
     });
-
 }
 <div class="header-content">
     @foreach (var page in _pages) {

@@ -2,6 +2,52 @@
 
 <HoneymoonTekst />
 
+<div class="honeymoon-container">
+    @foreach (var donation in _donations) {
+    <div class="honeymoon-donation">
+        <img src="/image/qr-huwelijksreis-@(donation.Id).png" alt="Huwelijksreis QR @(donation.Id)"/>
+        <h3>@(donation.Header)</h3>
+        <p>@(donation.Text)</p>
+    </div>
+    }
+</div>
+
 @code {
-    
+    private List<Donation> _donations = new List<Donation>(new[] {
+        new Donation("Vlucht", "Het belangrijkste onderdeel van de reis: daadwerkelijk reizen.", "vlucht"),
+        new Donation("Boot", "We willen heel Nieuw-Zeeland rondreizen, dus we moeten ook met de boot.", "boot"),
+        new Donation("Camper", "Lekker rondracen in ons eigen hotel!", "camper"),
+        new Donation("Vreten", "Lekker eten hoort zeker bij een huwelijksreis!", "diner"),
+        new Donation("Lord of the Rings", "Bezoeken van Hobbiton!!!", "hobbit"),
+        new Donation("Lord of the Rings", "Mount Doom", "mtdoom"),
+        new Donation("Glow worms", "Yes.", "worms"),
+        new Donation("Kanoën", "Spreekt voor zich.", "kano"),
+        new Donation("Sauna", "Relaxen tussendoor is ook belangrijk.", "sauna"),
+        new Donation("Spa", "Alternatief voor de sauna.", "spa"),
+    });
 }
+
+<style lang="scss">
+    .honeymoon-container {
+        width: 100%;
+        min-width: 465px;
+        margin-top: 40px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        
+        .honeymoon-donation {
+            width: 100%;
+            max-width: 330px;
+            padding: 20px 7px;
+            border-radius: 5px;
+            border: 1px solid var(--secondary);
+            
+            img {
+                width: 210px;
+            }
+        }
+    }
+</style>
