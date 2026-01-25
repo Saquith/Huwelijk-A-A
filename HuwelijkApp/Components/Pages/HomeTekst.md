@@ -1,4 +1,4 @@
-# Dit is een intro voor de website
+# Welkom!
 
 Welkom bij de website. Dit is duffe tekst die moet worden vervangen.  
 Maarrrr er staat tenminste iets!
