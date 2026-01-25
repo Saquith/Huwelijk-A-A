@@ -1,4 +1,7 @@
-﻿@page "/reis"
+@page "/reis"
+
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
 
 <HoneymoonTekst />
 
@@ -13,18 +16,12 @@
 </div>
 
 @code {
-    private List<Donation> _donations = new List<Donation>(new[] {
-        new Donation("Vlucht", "Het belangrijkste onderdeel van de reis: daadwerkelijk reizen.", "vlucht"),
-        new Donation("Boot", "We willen heel Nieuw-Zeeland rondreizen, dus we moeten ook met de boot.", "boot"),
-        new Donation("Camper", "Lekker rondracen in ons eigen hotel!", "camper"),
-        new Donation("Vreten", "Lekker eten hoort zeker bij een huwelijksreis!", "diner"),
-        new Donation("Lord of the Rings", "Bezoeken van Hobbiton!!!", "hobbit"),
-        new Donation("Lord of the Rings", "Mount Doom", "mtdoom"),
-        new Donation("Glow worms", "Yes.", "worms"),
-        new Donation("Kanoën", "Spreekt voor zich.", "kano"),
-        new Donation("Sauna", "Relaxen tussendoor is ook belangrijk.", "sauna"),
-        new Donation("Spa", "Alternatief voor de sauna.", "spa"),
-    });
+    private IReadOnlyList<Donation> _donations = Array.Empty<Donation>();
+
+    protected override void OnInitialized()
+    {
+        _donations = Configuration.GetSection("Honeymoon:Donations").Get<List<Donation>>() ?? new List<Donation>();
+    }
 }
 
 <style lang="scss">
