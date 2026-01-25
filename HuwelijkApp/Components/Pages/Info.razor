@@ -1,7 +1,19 @@
 ﻿@page "/info"
+@inject IConfiguration Configuration
 
 <InfoTekst />
 
+<iframe
+    width="100%"
+    min-width="465" max-width="640"
+    height="450"
+    style="border:0"
+    loading="lazy"
+    allowfullscreen
+    referrerpolicy="no-referrer-when-downgrade"
+    src="https://www.google.com/maps/embed/v1/place?key=@GoogleMapsApiKey&q=Grindweg+10,+8422DN+Nijeberkoop">
+</iframe>
+
 @code {
-    
+    private string GoogleMapsApiKey => Configuration["GoogleMaps:ApiKey"] ?? string.Empty;
 }
