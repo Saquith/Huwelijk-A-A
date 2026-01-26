@@ -2,6 +2,7 @@
     --primary: #264926;
     --secondary: #3d8e3d;
     --secondary-light: #85bd85;
+    --secondary-light-hover: #4aff4a20;
 }
 
 html, body {
