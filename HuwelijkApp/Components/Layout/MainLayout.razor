@@ -9,8 +9,11 @@
             @Body
         </article>
     </main>
+    <div class="content-footer">
+        <img class="kaart" alt="kaart achtergrond" src="/image/background.png" />
+    </div>
     <footer class="footer">
-        <img class="kaart" alt="kaart achtergrond" src="/image/background.jpg" />
+        <p>Alex & Alrike 2026</p>
     </footer>
 </div>
 
@@ -36,7 +39,7 @@
             background-color: var(--primary);
         }
         
-        .footer {
+        .content-footer {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -51,10 +54,10 @@
         .main {
             min-width: 465px;
             width: 100%;
+            min-height: calc(100vh - 964px);
             padding-top: 8em;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
             background-image: url("/image/content-overlay.svg");
             background-repeat: no-repeat;
@@ -79,6 +82,21 @@
                 p {
                     margin: 0;
                 }
+            }
+        }
+        
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 50px;
+            background-color: var(--primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            p {
+                color: white;
             }
         }
     }

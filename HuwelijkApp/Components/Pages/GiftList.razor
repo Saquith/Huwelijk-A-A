@@ -1,7 +1,51 @@
 ﻿@page "/cadeaus"
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
 
 <GiftListTekst />
 
+<HoneymoonTekst />
+
+<div class="honeymoon-container">
+    @foreach (var donation in _donations) {
+        <div class="honeymoon-donation">
+            <img src="/image/qr-huwelijksreis-@(donation.Id).png" alt="Huwelijksreis QR @(donation.Id)"/>
+            <h3>@(donation.Header)</h3>
+            <p>@(donation.Text)</p>
+        </div>
+    }
+</div>
+
 @code {
-    
+    private IReadOnlyList<Donation> _donations = Array.Empty<Donation>();
+
+    protected override void OnInitialized()
+    {
+        _donations = Configuration.GetSection("Honeymoon:Donations").Get<List<Donation>>() ?? new List<Donation>();
+    }
 }
+
+<style lang="scss">
+    .honeymoon-container {
+        width: 100%;
+        min-width: 465px;
+        margin-top: 40px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        
+        .honeymoon-donation {
+            width: 100%;
+            max-width: 330px;
+            padding: 20px 7px;
+            border-radius: 5px;
+            border: 1px solid var(--secondary);
+            
+            img {
+                width: 210px;
+            }
+        }
+    }
+</style>
