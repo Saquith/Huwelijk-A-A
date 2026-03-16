@@ -13,7 +13,9 @@
     @foreach (var page in _pages) {
     <NavLink class="header-link" href="@(page.Link)">
         @if (page.Icon != null) {
-        <img class="header-icon" alt="@(page.Icon)" src="/icons/@(page.Icon).svg" />
+        <svg alt="@(page.Icon)">
+            <use href="/icons/@(page.Icon).svg" />
+        </svg>
         }
         @if (!string.IsNullOrEmpty(page.Text)) {
         <span class="link-text">@(page.Text)</span>
@@ -42,25 +44,24 @@
         gap: 4px;
         color: var(--secondary-light);
         text-decoration: none;
-    }
 
-    .header-link.active {
-        font-weight: bold;
-    }
+        &.active {
+            font-weight: bold;
+        }
 
-    .header-link:hover {
-        background-color: var(--secondary-light);
-        color: var(--primary);
-    }
+        &:hover {
+            background-color: var(--secondary-light);
+            color: var(--primary);
 
-    .header-icon {
-        width: 24px;
-        height: 24px;
-        display: block;
-        filter: brightness(0) saturate(100%) invert(75%) sepia(24%) saturate(457%) hue-rotate(75deg) brightness(90%) contrast(86%);
-    }
+            svg {
+                fill: var(--primary);
+            }
+        }
 
-    .header-link:hover .header-icon {
-        filter: brightness(0) saturate(100%) invert(19%) sepia(16%) saturate(1389%) hue-rotate(72deg) brightness(96%) contrast(91%);
+        svg {
+            fill: var(--secondary-light);
+            width: 24px;
+            height: 24px;
+        }
     }
 </style>
