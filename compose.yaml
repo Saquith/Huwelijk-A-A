@@ -1,7 +1,10 @@
-﻿services:
+services:
   huwelijkapp:
     image: huwelijkapp
     build:
       context: .
       dockerfile: HuwelijkApp/Dockerfile
-
+    restart: unless-stopped
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_URLS: http://+:8080

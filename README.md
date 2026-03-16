@@ -52,3 +52,30 @@ Notes
 - Everything stays static — no server-side Google API or OAuth required.
 - If you later want to use externally hosted images (CDN or public URLs), change `Mode` to `Urls` and put absolute image URLs in the `PhotoUrls` array.
 ```
+
+## Docker deployment behind a reverse proxy
+
+This app can run as a plain HTTP container behind an external reverse proxy such as Traefik, Nginx Proxy Manager, or Caddy.
+
+What is already configured:
+- The container listens on `http://+:8080`.
+- The app trusts `X-Forwarded-For` and `X-Forwarded-Proto` headers.
+- No certificate configuration is required inside the app container.
+
+Build and start:
+```bash
+docker compose build
+docker compose up -d
+```
+
+If your reverse proxy is another container:
+1. Put both containers on the same Docker network.
+2. Route your domain to the `huwelijkapp` service on port `8080`.
+3. Ensure the proxy forwards the `X-Forwarded-Proto` header.
+
+Example direct test without a reverse proxy:
+```bash
+docker compose run --rm -p 8080:8080 huwelijkapp
+```
+
+Then open `http://localhost:8080`.
