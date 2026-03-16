@@ -13,9 +13,7 @@
     @foreach (var page in _pages) {
     <NavLink class="header-link" href="@(page.Link)">
         @if (page.Icon != null) {
-        <svg alt="@(page.Icon)">
-            <use href="icons/@(page.Icon).svg" />
-        </svg>
+        <img class="header-icon" alt="@(page.Icon)" src="/icons/@(page.Icon).svg" />
         }
         @if (!string.IsNullOrEmpty(page.Text)) {
         <span class="link-text">@(page.Text)</span>
@@ -53,14 +51,9 @@
             &:hover {
                 background-color: var(--secondary-light);
                 color: var(--primary);
-                
-                svg {
-                    fill: var(--primary);
-                }
             }
             
-            svg {
-                fill: var(--secondary-light);
+            .header-icon {
                 max-width: 24px;
                 max-height: 24px;
                 min-width: 24px;
