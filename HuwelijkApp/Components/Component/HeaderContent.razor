@@ -26,39 +26,41 @@
     .header-content {
         height: 100%;
         display: flex;
-        flex-direction: row;
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
         gap: 8px;
-        
-        .header-link {
-            padding: 7px;
-            border-radius: 5px;
-            border: 1px solid var(--secondary);
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            gap: 4px;
-            color: var(--secondary-light);
-            text-decoration: none;
-            
-            &.active {
-                font-weight: bold;
-            }
-            
-            &:hover {
-                background-color: var(--secondary-light);
-                color: var(--primary);
-            }
-            
-            .header-icon {
-                max-width: 24px;
-                max-height: 24px;
-                min-width: 24px;
-                min-height: 24px;
-            }
-        }
+    }
+
+    .header-link {
+        padding: 7px;
+        border-radius: 5px;
+        border: 1px solid var(--secondary);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        color: var(--secondary-light);
+        text-decoration: none;
+    }
+
+    .header-link.active {
+        font-weight: bold;
+    }
+
+    .header-link:hover {
+        background-color: var(--secondary-light);
+        color: var(--primary);
+    }
+
+    .header-icon {
+        width: 24px;
+        height: 24px;
+        display: block;
+        filter: brightness(0) saturate(100%) invert(75%) sepia(24%) saturate(457%) hue-rotate(75deg) brightness(90%) contrast(86%);
+    }
+
+    .header-link:hover .header-icon {
+        filter: brightness(0) saturate(100%) invert(19%) sepia(16%) saturate(1389%) hue-rotate(72deg) brightness(96%) contrast(91%);
     }
 </style>
