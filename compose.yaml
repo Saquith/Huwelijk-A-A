@@ -1,3 +1,5 @@
+name: huwelijkapp
+
 services:
   huwelijkapp:
     image: huwelijkapp
@@ -8,3 +10,4 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: Production
       ASPNETCORE_URLS: http://+:8080
+      GoogleMaps__ApiKey: REPLACE_WITH_REAL_GOOGLE_MAPS_API_KEY
