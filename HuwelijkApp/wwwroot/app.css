@@ -24,7 +24,7 @@ ol, ul {
     list-style: circle;
 }
 li {
-    text-align-last: justify;
+    text-align-last: left;
     word-spacing: 5px;
 }
 
