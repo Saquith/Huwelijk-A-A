@@ -1,7 +1,14 @@
-﻿services:
+services:
   huwelijkapp:
     image: huwelijkapp
+    container_name: huwelijkapp
     build:
       context: .
       dockerfile: HuwelijkApp/Dockerfile
-
+    restart: unless-stopped
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_URLS: http://+:8080
+      GoogleMaps__ApiKey: REPLACE_WITH_REAL_GOOGLE_MAPS_API_KEY
+    volumes:
+      - ./huwelijkapp-keys:/home/app/.aspnet/DataProtection-Keys
