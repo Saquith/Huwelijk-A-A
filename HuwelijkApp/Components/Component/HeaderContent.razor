@@ -13,9 +13,7 @@
     @foreach (var page in _pages) {
     <NavLink class="header-link" href="@(page.Link)">
         @if (page.Icon != null) {
-        <svg alt="@(page.Icon)">
-            <use href="/icons/@(page.Icon).svg" />
-        </svg>
+        <span class="icon" style="mask-image: url('/icons/@(page.Icon).svg'); -webkit-mask-image: url('/icons/@(page.Icon).svg');"></span>
         }
         @if (!string.IsNullOrEmpty(page.Text)) {
         <span class="link-text">@(page.Text)</span>
@@ -52,16 +50,18 @@
         &:hover {
             background-color: var(--secondary-light);
             color: var(--primary);
-
-            svg {
-                fill: var(--primary);
-            }
         }
 
-        svg {
-            fill: var(--secondary-light);
+        .icon {
             width: 24px;
             height: 24px;
+            background-color: currentColor;
+            mask-repeat: no-repeat;
+            mask-position: center;
+            mask-size: contain;
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-position: center;
+            -webkit-mask-size: contain;
         }
     }
 </style>
